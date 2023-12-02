@@ -1,0 +1,234 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+:root {
+  --base-color: rgb(213, 184, 184);
+  --success-color: rgb(48, 117, 55);
+  --danger-color: rgb(147, 67, 67);
+  --bg-body: rgb(126, 117, 117);
+
+  --mr-sm: 0.5rem;
+  --mr-md: 1rem;
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--base-color);
+  font-size: 19px;
+  font-family: "Roboto Condensed", sans-serif;
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h6 {
+  text-align: center;
+  margin: 0.7rem;
+}
+
+ul {
+  list-style-position: inside;
+  list-style-type: none;
+}
+
+button,
+input {
+  outline: none;
+  border: none;
+  font-size: inherit;
+  background-color: inherit;
+  font-family: inherit;
+  color: inherit;
+  margin-right: 0.5rem;
+}
+
+input::placeholder {
+  color: inherit;
+}
+
+.todos,
+.form {
+  width: 75%;
+  margin: 1.5rem 1rem 1.5rem 20%;
+  padding: 1rem;
+}
+
+main {
+  position: relative;
+}
+
+/* TODOS SECTION **********************************************************************************/
+
+.todos {
+  height: 75vh;
+  overflow-y: auto;
+}
+
+.todo {
+  margin: 1rem 0px;
+  position: relative;
+  background-color: var(--success-color);
+  padding: var(--mr-md);
+  color: var(--base-color);
+}
+
+.todo.updated {
+  background-color: var(--danger-color);
+}
+
+.todo.updated::before {
+  content: "РЕДАКТИРОВАНИЕ...";
+  display: inline-block;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: var(--mr-md);
+  right: var(--mr-md);
+  color: var(--base-color);
+}
+
+.todo__date {
+  margin: 0.8rem;
+  display: block;
+}
+
+.todo__label {
+  margin: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 90%;
+  background-color: var(--success-color);
+  padding: var(--mr-sm);
+  font-weight: 300;
+}
+
+.todo__label.done {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.todo__checkbox {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+
+.todo__text {
+  font-style: normal;
+  width: 95%;  
+  text-align: justify;
+  letter-spacing: 0.2px;
+  line-height: 1.4em;
+}
+
+.todo__btn {
+  position: absolute;
+  right: 2.5%;
+  bottom: var(--mr-md);
+}
+
+.todo__btn span {
+  color: var(--base-color);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.todo__btn span:hover {
+  color: var(--danger-color);
+}
+
+/* ФОРМА **********************************************************************************/
+
+.form {
+  display: flex;
+  align-items: stretch;
+}
+
+.form__input {
+  padding: var(--mr-sm);
+  border: 2px solid var(--base-color);
+  width: 90%;
+  border-right: none;
+  border-radius: var(--mr-sm) 0px 0px var(--mr-sm);
+}
+
+.form__button {
+  width: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.form__button span {
+  font-size: 2rem;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--base-color);
+  border-radius: 0 var(--mr-sm) var(--mr-sm) 0;
+  padding: var(--mr-sm) 0px;
+}
+
+.form__button span:hover {
+  color: var(--success-color);
+  transform: scale(1.01);
+}
+
+/* ASIDE: FILTER PANEL **********************************************************************************/
+
+.filter__trigger {
+  position: absolute;
+  left: 15%;
+  top: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.filter__trigger span {
+  font-size: 2rem;
+  margin-left: var(--mr-sm);
+}
+
+.filter {
+  position: absolute;
+  top: 0px;
+  left: 0%;
+  width: 14vw;
+  height: 80vh;
+  padding: var(--mr-md);
+  background-color: var(--success-color);
+  border-radius: 0 var(--mr-md) var(--mr-md) 0;
+  transform: translateX(-100%);
+  transition: 0.3s all ease;
+  border-left: 5px solid var(--base-color);
+}
+
+.filter.active {
+  transform: translateX(0%);
+}
+
+.filter_li {
+  width: 85%;
+  margin: var(--mr-sm) 0;
+}
+
+.filter_label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.filter_input {
+  width: 30px;
+  height: 30px;
+}
+
+

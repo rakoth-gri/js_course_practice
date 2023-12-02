@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODOS</title>
+    <!-- GOOGLE TYPOGRATHY -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- custom styles -->
+    <link rel="stylesheet" href="./src/index.css" />
+    <script defer="defer" type="module" src="./src/js/index.js"></script>
+  </head>
+  <body>
+    <h1>Твои заметки</h1>
+    <main class="main">
+      <!--  -->
+      <button class="filter__trigger">
+        Filter
+        <span class="material-symbols-outlined"> tune </span>
+      </button>
+      <form action="" class="form">        
+        <input
+          type="text"
+          placeholder="Создать..."
+          autofocus
+          class="form__input"
+          name="text"
+        />
+        <button class="form__button">
+          <span class="material-symbols-outlined"> add_box </span>
+        </button>
+      </form>
+      <ul class="todos">
+        <!-- render -->
+      </ul>
+    </main>
+    <!-- Боковая -->
+    <aside class="filter">
+      <!-- render -->dsds
+    </aside>
+  </body>
+</html>
