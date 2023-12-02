@@ -1,5 +1,5 @@
 export default class Filter {
-  constructor(container, data, store) {
+  constructor(container, store, data) {
     this.$container = container;
     this.store = store;
     this.containerHandler = this.containerHandler.bind(this);
