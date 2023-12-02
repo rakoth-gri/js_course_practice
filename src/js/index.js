@@ -18,7 +18,7 @@ import {
 const todo = new Todo(TODOS_CONTAINER, store, FORM);
 
 // FILTER SERVICE
-new Filter(FILTER, FILTER_LIST, store);
+new Filter(FILTER, store, FILTER_LIST);
 
 const cb = (todos, filter) => {
   const sortedTodos = getSortedTodos(todos);
