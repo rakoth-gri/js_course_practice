@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./src/icons/todo.svg" type="image/svg+xml">
     <title>TODOS</title>
     <!-- GOOGLE TYPOGRATHY -->
     <link
@@ -21,14 +22,15 @@
     <script defer="defer" type="module" src="./src/js/index.js"></script>
   </head>
   <body>
-    <h1>Твои заметки</h1>
+    <h1> Список дел </h1>
     <main class="main">
-      <!--  -->
+      <!-- Кнопка фильтра -->
       <button class="filter__trigger">
         Filter
         <span class="material-symbols-outlined"> tune </span>
       </button>
-      <form action="" class="form">        
+      <!-- Форма для добавления/обновления дел -->
+      <form action="" class="form">
         <input
           type="text"
           placeholder="Создать..."
@@ -40,13 +42,14 @@
           <span class="material-symbols-outlined"> add_box </span>
         </button>
       </form>
+      <!-- Контейнер списка дел -->
       <ul class="todos">
         <!-- render -->
       </ul>
     </main>
-    <!-- Боковая -->
+    <!-- Боковая панель фильтра  -->
     <aside class="filter">
-      <!-- render -->dsds
+      <!-- render -->
     </aside>
   </body>
 </html>
