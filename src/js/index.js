@@ -5,9 +5,7 @@ import {
   FILTER,
   FILTER_LIST,
 } from "../const/dom.js";
-import store from "../store/store.js";
 
-console.log(store);
 
 
 // STORE ----------
@@ -16,9 +14,7 @@ console.log(store);
 // FILTER SERVICE
 
 
-const cb = () => {
-  
-};
+const cb = () => {};
 
 
 // FORM ------
