@@ -19,14 +19,17 @@ const store = {
 
     add(todo) {
         this.todos.unshift(todo)
+        this.subscribers.forEach(cb => cb(this.todos))
     },
 
     delete(id) {
         this.todos = this.todos.filter(todo => todo.id !== id)
+        this.subscribers.forEach(cb => cb(this.todos))
     },
 
     status(id) {
         this.todos = this.todos.map(todo => ({...todo, completed: todo.id === id ? !todo.completed : todo.completed}))
+        this.subscribers.forEach(cb => cb(this.todos))
     },
 
     update(newTodo) {
@@ -37,6 +40,7 @@ const store = {
             }
             return todo
         })
+        this.subscribers.forEach(cb => cb(this.todos))
         this.isUpdated = false
     },
 
@@ -48,13 +52,9 @@ const store = {
         return this.todos;
     },
     
-    subscribe(cb) {
-        this.subscribers.push(cb)
+    subscribe(obs) {
+        this.subscribers.push(obs)
     }
 };
-
-
-
-
 
 export default store;
