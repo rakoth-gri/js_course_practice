@@ -1,58 +1,60 @@
-import { filterTodos } from "../services/utils.js";
-
 const store = {
-  todos: JSON.parse(localStorage.getItem("todos") || "[]"),
-  isUpdated: null,
-  subsribers: [],
+    todos: [
+        {
+            id: Date.now().toString(),
+            text: "HELLO WORLD",
+            completed: false,
+            date: new Date().toJSON()
+        },
+        {
+            id: Date.now().toString(),
+            text: "ANOTHER ... HELLO WORLD",
+            completed: false,
+            date: new Date().toJSON()
+        }
+    ],
+    isUpdated: false,
+    subscribers: [],
+    // методы
 
-  add(todo) {
-    this.todos.unshift(todo);
-    this.subsribers.forEach((cb) => cb(this.todos));
-  },
+    add(todo) {
+        this.todos.unshift(todo)
+    },
 
-  delete(id) {
-    this.todos = this.todos.filter((todo) => todo.id !== id);
-    this.subsribers.forEach((cb) => cb(this.todos));
-  },
+    delete(id) {
+        this.todos = this.todos.filter(todo => todo.id !== id)
+    },
 
-  status(id) {
-    this.todos = this.todos.map((todo) => ({
-      ...todo,
-      completed: todo.id === id ? !todo.completed : todo.completed,
-    }));
-    this.subsribers.forEach((cb) => cb(this.todos));
-  },
+    status(id) {
+        this.todos = this.todos.map(todo => ({...todo, completed: todo.id === id ? !todo.completed : todo.completed}))
+    },
 
-  update(newTodo) {
-    this.todos = this.todos.map((todo) => {
-      if (todo.id === newTodo.id) {
-        todo.text = newTodo.text;
-        todo.date = newTodo.date;
-      }
-      return todo;
-    });
-    this.subsribers.forEach((cb) => cb(this.todos));
-    store.isUpdated = false;
-  },
+    update(newTodo) {
+        this.todos = this.todos.map(todo => {
+            if(todo.id === newTodo.id) {
+                todo.text = newTodo.text;
+                todo.date = newTodo.date;
+            }
+            return todo
+        })
+        this.isUpdated = false
+    },
 
-  setIsUpdated(todo) {
-    if (todo instanceof Object) this.isUpdated = todo;
-  },
+    setIsUpdated(todo) {
+        if (todo instanceof Object) this.isUpdated = todo;
+    },
 
-  filter(filter, checked) {
-    const filteredTodos = checked
-      ? filterTodos(filter, this.todos)
-      : [...this.todos];
-    this.subsribers.forEach((cb) => cb(filteredTodos, filter));
-  },
-
-  getState() {
-    return this.todos;
-  },
-
-  subscribe(cb) {
-    this.subsribers.push(cb);
-  },
+    getState() {
+        return this.todos;
+    },
+    
+    subscribe(cb) {
+        this.subscribers.push(cb)
+    }
 };
+
+
+
+
 
 export default store;
