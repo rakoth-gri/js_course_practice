@@ -1,5 +1,4 @@
 import Todo from "../services/Todo.js";
-
 import {
   TODOS_CONTAINER,
   FORM,
@@ -8,42 +7,50 @@ import {
   FILTER_LIST,
 } from "../const/dom.js";
 import store from "../store/store.js";
+import { createTodo, formReset } from "../services/utils.js";
 
-console.log(store);
+/*
+
+Пишем обработчик формы:
+    Отмена поведения по-умолчанию
+    Создание todo при помощи утилиты createTodo
+    Проверка заполненности объекта todo
+    Добавление todo в состояние
+    Сортировка todo при помощи утилиты getSortedTodos
+    Добавляем getSortedTodos в функцию-callback
+    Реализуем утилиту очистки формы "formReset"
+
+  Рефакторим метод render у класса Todo!  
+*/
 
 // Todo instance:
-const todo = new Todo(TODOS_CONTAINER, store, FORM)
+const todo = new Todo(TODOS_CONTAINER, store, FORM);
 
 // Observer:
-
 const observer = (todos) => {
-  todo.render(TODOS_CONTAINER, todos)
-}
-
-store.subscribe(observer)
-
-
-
-
-
-
-
-
-
+  todo.render(TODOS_CONTAINER, todos);
+};
 
 // STORE ----------
+store.subscribe(observer);
 
+// FORM ------
+
+FORM.addEventListener("submit", submitHandler)
+
+function submitHandler(e) {
+
+  e.preventDefault()
+
+  let todo = createTodo(this, store)
+
+  if (Object.values(todo).some(v => v === "")) return
+
+  store.isUpdated ? store.update(todo) : store.add(todo)
+
+  formReset(this)
+}
 
 // FILTER SERVICE
 
-
-const cb = () => {
-  
-};
-
-
-// FORM ------
-// FORM.addEventListener("submit", submitHandler);
-
-
-
+console.log(todo);

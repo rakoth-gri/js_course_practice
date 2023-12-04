@@ -1,17 +1,6 @@
 const store = {
   todos: [
-    {
-      id: Date.now().toString(),
-      text: "HELLO WORLD",
-      completed: false,
-      date: new Date().toJSON(),
-    },
-    {
-      id: new Date("2023-12-03").getTime().toString(),
-      text: "ANOTHER ... HELLO WORLD",
-      completed: false,
-      date: new Date().toJSON(),
-    },
+    
   ],
   isUpdated: false,
   subscribers: [],
