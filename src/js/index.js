@@ -12,7 +12,6 @@ import store from "../store/store.js";
 console.log(store);
 
 // Todo instance:
-
 const todo = new Todo(TODOS_CONTAINER, store, FORM)
 
 // Observer:

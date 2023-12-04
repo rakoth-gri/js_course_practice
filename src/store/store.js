@@ -7,7 +7,7 @@ const store = {
       date: new Date().toJSON(),
     },
     {
-      id: Date.now().toString(),
+      id: new Date("2023-12-03").getTime().toString(),
       text: "ANOTHER ... HELLO WORLD",
       completed: false,
       date: new Date().toJSON(),
