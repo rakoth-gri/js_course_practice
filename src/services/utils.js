@@ -1,4 +1,4 @@
-export const getSortedTodos = () => {}
+export const getSortedTodos = (todos) => todos.slice(0).sort((todo1, todo2) => new Date(todo2.date).getTime() - new Date(todo1.date).getTime())
   
 
 export const createTodo = (form, store) => {

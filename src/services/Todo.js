@@ -12,7 +12,7 @@ export default class Todo {
   }
 
   render(container, data) {
-      Render.controller(this.constructor.name, container, data)
+    Render.controller(this.constructor.name, container, data)
   }
 
   containerHandler(e) {
@@ -31,9 +31,22 @@ export default class Todo {
       case e.target.matches(".delete"):
         this.store.delete(e.target.id);
         break;
+      case e.target.matches(".update"):
+          const todo = this.store.todos.find(todo => todo.id === e.target.id)         
+          this.store.setIsUpdated(todo)
+          this.$form.text.value = todo.text
+          this.$form.text.focus();
+          this.addUpdatedClass(todo.id)
+          break;  
       default:
         return;
     }
+  }
+
+  addUpdatedClass(id) {        
+    [...document.querySelectorAll(".todo")]
+      .find(todo => todo.id === id)
+      .classList.add("updated")        
   }
 
   addListenerToContainer() {

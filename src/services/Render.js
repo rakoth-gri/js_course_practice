@@ -20,7 +20,7 @@ export default  class Render {
         container.innerHTML = data
             .map(
                 ({ id, text, completed, date }) => `
-                    <li class="todo">
+                    <li class="todo" id="${id}">
                     <span class="todo__date">  ${new Date(date).toLocaleString()} </span>
                     <label class="${`todo__label ${completed ? "done" : ""
                                     }`}"> 

@@ -7,7 +7,7 @@ import {
   FILTER_LIST,
 } from "../const/dom.js";
 import store from "../store/store.js";
-import { createTodo, formReset } from "../services/utils.js";
+import { createTodo, formReset, getSortedTodos } from "../services/utils.js";
 
 /*
 
@@ -28,7 +28,8 @@ const todo = new Todo(TODOS_CONTAINER, store, FORM);
 
 // Observer:
 const observer = (todos) => {
-  todo.render(TODOS_CONTAINER, todos);
+  const sortedTodos = getSortedTodos(todos)
+  todo.render(TODOS_CONTAINER, sortedTodos);
 };
 
 // STORE ----------
