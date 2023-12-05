@@ -1,7 +1,5 @@
 const store = {
-  todos: [
-    
-  ],
+  todos: JSON.parse(localStorage.getItem("todos") || '[]'),
   isUpdated: false,
   subscribers: [],
   // методы

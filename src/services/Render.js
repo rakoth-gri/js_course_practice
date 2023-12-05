@@ -4,9 +4,9 @@ export default  class Render {
         switch (name) {
             case "Todo":
                 Render[name](args)
-                break;
-        
+                break;        
             default:
+                Render[name](args)
                 break;
         }
     }
@@ -42,7 +42,19 @@ export default  class Render {
             throw new Error("ERROR DATA TYPE...");
         }
 
-        container.innerHTML = ""
+        const filterData = data.map(({id, text, value, type}) => {
+            return `
+            <li class="filter_li" id="${id}">
+                <label class="filter_label">
+                    <input type="${type}", value="${value}" class="filter_input"/>
+                    ${text}
+                </label>
+            </li>  
+            `
+        }).join("")
+
+        container.innerHTML = `<ul class="filter_ul"> ${filterData}</ul>`
+
     }
 }
 
