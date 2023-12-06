@@ -17,7 +17,16 @@ export const createTodo = (form, store) => {
       };
 };
 
-
+export const filterTodos = (filter, todos) => {
+  switch (filter) {
+    case "executed":
+      return todos.filter((todo) => todo.completed);
+    case "unexecuted":
+      return todos.filter((todo) => !todo.completed);
+    default:
+      return todos.slice(0)
+  }
+};
 
 export const formReset = (form) => {
   form.reset();

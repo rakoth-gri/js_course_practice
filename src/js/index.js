@@ -18,10 +18,10 @@ const filter = new Filter(FILTER, store, FILTER_LIST);
 
 
 // Observer:
-const observer = (todos) => {
+const observer = (todos, filter) => {
   const sortedTodos = getSortedTodos(todos);
   todo.render(TODOS_CONTAINER, sortedTodos);
-  localStorage.setItem("todos", JSON.stringify(sortedTodos))
+  !filter && localStorage.setItem("todos", JSON.stringify(sortedTodos))
 };
 
 // STORE ----------

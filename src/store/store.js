@@ -1,3 +1,5 @@
+import { filterTodos } from "../services/utils.js";
+
 const store = {
   todos: JSON.parse(localStorage.getItem("todos") || '[]'),
   isUpdated: false,
@@ -38,7 +40,17 @@ const store = {
     if (todo instanceof Object) this.isUpdated = todo;
   },
 
+  // this.store.filter(e.target.value, e.target.checked)
+
+  filter(filter, checked) {
+    const filteredTodos = checked
+      ? filterTodos(filter, this.todos)
+      : this.todos.slice(0)
+
+    this.subscribers.forEach((cb) => cb(filteredTodos, filter)); 
+  },
   
+
   getState() {
     return this.todos;
   },

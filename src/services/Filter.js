@@ -14,7 +14,16 @@ export default class Filter {
     Render.controller(this.constructor.name, container, data)
   }
 
-  containerHandler(e) { 
+  containerHandler(e) {    
+    
+    if (!e.target.closest(".filter_input")) return
+
+    document.querySelectorAll(".filter_input").forEach(inp => {
+      if(inp.value !== e.target.value) inp.checked = false
+    })
+    
+    this.store.filter(e.target.value, e.target.checked)
+    
   }
 
  
