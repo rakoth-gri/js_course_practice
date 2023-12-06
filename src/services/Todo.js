@@ -1,4 +1,5 @@
 import Render from "./Render.js"
+import { actionCreators } from "../const/dom.js";
 
 export default class Todo {
   constructor(container, store, form) {
@@ -26,10 +27,10 @@ export default class Todo {
 
     switch (true) {
       case e.target.matches(".todo__checkbox"):
-        this.store.status(e.target.id);
+        this.store.dispatch(actionCreators.status(e.target.id));
         break;
       case e.target.matches(".delete"):
-        this.store.delete(e.target.id);
+        this.store.dispatch(actionCreators.delete(e.target.id));
         break;
       case e.target.matches(".update"):
           const todo = this.store.todos.find(todo => todo.id === e.target.id)         

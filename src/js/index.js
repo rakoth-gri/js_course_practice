@@ -6,9 +6,11 @@ import {
   FILTER_TRIGGER,
   FILTER,
   FILTER_LIST,
+  actionCreators
 } from "../const/dom.js";
 import store from "../store/store.js";
 import { createTodo, formReset, getSortedTodos } from "../services/utils.js";
+
 
 // Todo instance:
 const todo = new Todo(TODOS_CONTAINER, store, FORM);
@@ -38,7 +40,7 @@ function submitHandler(e) {
 
   if (Object.values(todo).some((v) => v === "")) return;
 
-  store.isUpdated ? store.update(todo) : store.add(todo);
+  store.isUpdated ? store.dispatch(actionCreators.update(todo)) : store.dispatch(actionCreators.add(todo))
 
   formReset(this);
 }

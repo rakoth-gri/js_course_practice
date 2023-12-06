@@ -26,21 +26,32 @@ const FILTER_LIST = [
 
 export { TODOS_CONTAINER, FORM, FILTER_TRIGGER, FILTER, FILTER_LIST };
 
-/*
 
-[
-    {
-        id: Date.now().toString(),
-        text: "HELLO WORLD",
-        completed: false,
-        date: new Date().toJSON()
-    },
-    {
-        id: Date.now().toString(),
-        text: "ANOTHER ... HELLO WORLD",
-        completed: false,
-        date: new Date().toJSON()
-    }
-]
+// ACTION-CREATORS----
 
-*/
+export const actionTypes = {
+  add: "add",
+  delete: "delete",
+  update: "update",
+  status: "status"
+}
+
+export const actionCreators = {
+  add: (payload) => ({
+    type: actionTypes.add,
+    payload
+  }),
+  delete: (payload) => ({
+    type: actionTypes.delete,
+    payload
+  }),
+  update: (payload) => ({
+    type: actionTypes.update,
+    payload
+  }),
+  status: (payload) => ({
+    type: actionTypes.status,
+    payload
+  }),
+}
+
