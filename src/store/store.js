@@ -38,6 +38,7 @@ const store = {
     if (todo instanceof Object) this.isUpdated = todo;
   },
 
+  
   getState() {
     return this.todos;
   },

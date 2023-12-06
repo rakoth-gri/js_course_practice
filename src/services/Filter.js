@@ -14,16 +14,7 @@ export default class Filter {
     Render.controller(this.constructor.name, container, data)
   }
 
-  containerHandler(e) {
-    // if (
-    //   !(
-    //     e.target.matches(".todo__checkbox") ||
-    //     e.target.matches(".todo__btn span")
-    //   )
-    // )
-    //   return;
-
-    
+  containerHandler(e) { 
   }
 
  
