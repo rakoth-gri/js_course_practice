@@ -83,3 +83,6 @@ export default class Name {
   }
 }
 ```
+
+## Ссылка на ветку GITHUB-репозитория с исходникаим для быстрого старта:
+  https://github.com/rakoth-gri/js_course_practice/tree/1_intro
